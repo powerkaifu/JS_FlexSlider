@@ -1,0 +1,43 @@
+.kaifu, .tabList > header > ul > li > a {
+  display: block;
+}
+
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aa {
+  padding: 12px;
+}
+
+.bb {
+  padding: 24px;
+}
+
+.cc {
+  padding: 36px;
+}
+
+.tabList > header > ul {
+  list-style: none;
+  font-size: 0px;
+}
+
+.tabList > header > ul > li {
+  width: 16.66667%;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.tabList > header > ul > li > a {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+}
+
+.tabList > div {
+  color: blue;
+}
+/*# sourceMappingURL=style.css.map */
