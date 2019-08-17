@@ -4,12 +4,10 @@
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Animate.css -->
-        <link rel="stylesheet" href="css/animate.css" />
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css" />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-        <title>Hello, world!</title>
+        <link rel="stylesheet" href="css/animate.css" />
+        <title>Flex Slider</title>
         <style>
             body {
                 background-color: black;
@@ -17,6 +15,10 @@
 
             .row .col {
                 transition: flex 1s ease;
+            }
+
+            .flex-it {
+                flex: 3;
             }
 
             .col:nth-child(1) {
@@ -38,18 +40,13 @@
             .col:nth-child(5) {
                 background: url('https://picsum.photos/1920/1080/?random=5') no-repeat center center/cover;
             }
-
-            .flex-it {
-                flex: 3;
-            }
         </style>
     </head>
 
     <body>
-        <!-- loading-io 小果 -->
-        <!-- <div class="loading vw-100 vh-100 d-flex justify-content-center align-items-center"><img src="loading.svg" width="150px" height="150px" /></div> -->
+        <!-- justify-content 可以控制 loading-bar 的延伸方向，center 會兩側延神 -->
         <div class="loading-bar vh-100 vw-100 d-flex justify-content-center align-items-center">
-            <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"></div>
         </div>
         <div class="container-fluid vh-100 vw-100 p-0">
             <div class="row flex-nowrap no-gutters vh-100">
@@ -61,45 +58,32 @@
             </div>
         </div>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <!-- <script src="js/jquery-3.3.1.slim.min.js"></script> -->
         <script src="js/jquery-3.4.1.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <!-- others -->
-        <script src="js/wow.js"></script>
-        <script src="js/js_setup.js"></script>
         <script>
             $('.container-fluid').css('display', 'none');
-
-            /*
-            $(window).on('load', function() {
-                $('.loading').fadeOut(2000, function() {
-                    $(this)
-                        .removeClass()
-                        .css('display', 'none');
-                    $('.container-fluid').fadeIn(1000);
-                });
-            });
-            */
+            // loading-bar 效果
             $(window).on('load', function() {
                 let loadingPerc = 0;
                 let loading = setInterval(() => {
                     if (loadingPerc >= 100) {
                         clearInterval(loading);
-                        $('.loading-bar').fadeOut(3000, function() {
+                        $('.loading-bar').fadeOut(5000, function() {
                             $(this).attr('class', '');
-                            $('.container-fluid').fadeIn(2000);
+                            $('.container-fluid').fadeIn(8000);
                         });
                     } else {
                         loadingPerc += 1;
                         $('.progress-bar').css({
                             width: loadingPerc + '%',
                         });
+                        // $('.progress-bar').addClass('animated shake');
                         $('.progress-bar').text(loadingPerc + '%');
                     }
                 }, 50);
             });
-
+            // 滑動效果
             $('.col').on('click', function() {
                 colIndex = $('.col').index(this);
                 if ($('.col').hasClass('flex-it')) {
